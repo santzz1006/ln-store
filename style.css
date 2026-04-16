@@ -1,0 +1,1634 @@
+/* ==========================================================================
+   1. DESIGN SYSTEM (VARIÁVEIS GLOBAIS E TOKENS)
+   ========================================================================== */
+   :root {
+    /* Paleta de Cores Primárias - LN Store */
+    --bg-base: #030303;          /* Preto Profundo (Background Principal) */
+    --bg-surface: #0a0a0a;       /* Preto Superfície Nível 1 */
+    --bg-surface-light: #141414; /* Preto Superfície Nível 2 (Hover) */
+    --bg-surface-glass: rgba(10, 10, 10, 0.7); /* Efeito Vidro */
+    
+    --primary-blue: #0055FF;     /* Azul Royal LN (Ação Principal) */
+    --primary-hover: #003cc2;    /* Azul Royal Escuro */
+    --accent-blue: #3377FF;      /* Azul Claro (Highlights) */
+    --neon-blue: #00f2fe;        /* Azul Neon para Brilhos */
+    
+    /* Textos */
+    --text-main: #FFFFFF;        /* Branco Puro */
+    --text-muted: #888888;       /* Cinza para textos descritivos */
+    --text-dark: #121212;        /* Texto escuro (Inversões) */
+    
+    /* Cores de Feedback e Status */
+    --success-green: #00C851;
+    --success-hover: #007E33;
+    --whatsapp-color: #25D366;
+    --whatsapp-hover: #1EBE5D;
+    --star-gold: #FFD700;
+    --warning-red: #ff3547;
+
+    /* Gradientes */
+    --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-hover) 100%);
+    --gradient-dark: linear-gradient(180deg, transparent 0%, var(--bg-base) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+
+    /* Bordas e Sombras */
+    --border-light: rgba(255, 255, 255, 0.08);
+    --border-lighter: rgba(255, 255, 255, 0.15);
+    --border-blue: rgba(0, 85, 255, 0.3);
+    
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.6);
+    --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.8);
+    --shadow-blue: 0 8px 32px rgba(0, 85, 255, 0.2);
+    --shadow-neon: 0 0 15px rgba(0, 85, 255, 0.5);
+
+    /* Tipografia e Dimensões */
+    --font-primary: 'Montserrat', sans-serif;
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 24px;
+    --radius-pill: 50px;
+    
+    --header-height: 85px;
+    --ticker-height: 40px;
+    --container-width: 1200px;
+    
+    /* Transições de Animação */
+    --transition-fast: 0.15s ease-out;
+    --transition-smooth: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Z-Index Layers */
+    --z-negative: -1;
+    --z-base: 1;
+    --z-elevated: 10;
+    --z-dropdown: 100;
+    --z-sticky: 900;
+    --z-floating: 990;
+    --z-modal: 1000;
+    --z-toast: 1100;
+}
+
+/* ==========================================================================
+   2. RESET GERAL E CONFIGURAÇÕES DE BASE
+   ========================================================================== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    background-color: var(--bg-base);
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--bg-base);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-smooth);
+}
+
+ul, ol {
+    list-style: none;
+}
+
+img, picture, svg, video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+input, textarea, select {
+    font-family: inherit;
+    outline: none;
+}
+
+/* ==========================================================================
+   3. SCROLLBARS E SELEÇÃO DE TEXTO
+   ========================================================================== */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-base);
+    border-left: 1px solid var(--border-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+    border-radius: var(--radius-pill);
+    border: 2px solid var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-blue);
+}
+
+::selection {
+    background-color: var(--primary-blue);
+    color: var(--text-main);
+}
+
+/* ==========================================================================
+   4. UTILITÁRIOS E TIPOGRAFIA
+   ========================================================================== */
+.text-white { color: var(--text-main); }
+.text-blue { color: var(--primary-blue); }
+.text-muted { color: var(--text-muted); }
+.highlight { 
+    color: var(--primary-blue); 
+    font-weight: 900; 
+    position: relative;
+    display: inline-block;
+}
+
+.center { text-align: center; }
+.mt-20 { margin-top: 20px; }
+.mt-40 { margin-top: 40px; }
+.relative-z { position: relative; z-index: var(--z-elevated); }
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+p { margin-bottom: 15px; }
+
+/* ==========================================================================
+   5. COMPONENTES: BOTÕES E BADGES
+   ========================================================================== */
+.btn-whatsapp, .btn-whatsapp-outline, .btn-primary, .btn-explore, .btn-sm {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-weight: 700;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: var(--transition-smooth);
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-whatsapp {
+    background: var(--whatsapp-color);
+    color: var(--text-main);
+    padding: 18px 36px;
+    font-size: 1.1rem;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.2);
+    z-index: 1;
+}
+
+.btn-whatsapp::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 0%; height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: var(--transition-smooth);
+    z-index: -1;
+}
+
+.btn-whatsapp:hover {
+    background: var(--whatsapp-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp:hover::before { width: 100%; }
+
+.btn-whatsapp.btn-lg {
+    padding: 22px 45px;
+    font-size: 1.25rem;
+    width: 100%;
+    max-width: 450px;
+}
+
+.btn-whatsapp-outline {
+    background: transparent;
+    color: var(--whatsapp-color);
+    border: 2px solid var(--whatsapp-color);
+    padding: 12px 28px;
+    font-size: 0.95rem;
+}
+
+.btn-whatsapp-outline:hover {
+    background: var(--whatsapp-color);
+    color: var(--text-main);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: var(--text-main);
+    padding: 16px 32px;
+    box-shadow: var(--shadow-blue);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-neon);
+}
+
+/* Badges Customizados */
+.badge-premium, .badge-blue, .badge-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border-radius: var(--radius-pill);
+    font-size: 0.85rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    backdrop-filter: blur(5px);
+}
+
+.badge-premium { 
+    background: var(--bg-surface-glass); 
+    border: 1px solid var(--border-lighter); 
+}
+.badge-blue { 
+    background: rgba(0, 85, 255, 0.1); 
+    color: var(--accent-blue); 
+    border: 1px solid var(--border-blue); 
+}
+.badge-gold { 
+    background: rgba(255, 215, 0, 0.05); 
+    color: var(--star-gold); 
+    border: 1px solid rgba(255, 215, 0, 0.2); 
+}
+
+/* ==========================================================================
+   6. TOP TICKER (BARRA DE NOTÍCIAS)
+   ========================================================================== */
+.top-ticker {
+    background: var(--gradient-primary);
+    color: var(--text-main);
+    height: var(--ticker-height);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    z-index: var(--z-modal);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    padding-left: 100%;
+    box-sizing: content-box;
+}
+
+.ticker-move {
+    display: inline-block;
+    white-space: nowrap;
+    padding-right: 100%;
+    animation: ticker 35s linear infinite;
+}
+
+.ticker-move:hover {
+    animation-play-state: paused;
+}
+
+.ticker-item {
+    display: inline-block;
+    padding: 0 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.ticker-item i {
+    margin-right: 10px;
+    color: var(--star-gold);
+}
+
+/* ==========================================================================
+   7. HEADER (CABEÇALHO STICKY)
+   ========================================================================== */
+header {
+    background: rgba(3, 3, 3, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: var(--header-height);
+    z-index: var(--z-sticky);
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    align-items: center;
+    transition: var(--transition-smooth);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin: 0;
+    line-height: 1;
+}
+
+.logo .text-subtitle {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 35px;
+}
+
+.navbar a {
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    padding: 5px 0;
+}
+
+.navbar a i {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    transition: var(--transition-fast);
+}
+
+/* Efeito de Sublinhado Mágico no Hover do Menu */
+.navbar a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-blue);
+    transition: var(--transition-smooth);
+}
+
+.navbar a:hover { color: var(--primary-blue); }
+.navbar a:hover i { color: var(--primary-blue); }
+.navbar a:hover::after { width: 100%; }
+
+/* ==========================================================================
+   8. WIDGETS FLUTUANTES (REDES SOCIAIS E WHATSAPP)
+   ========================================================================== */
+.social-floating-bar {
+    position: fixed;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    z-index: var(--z-floating);
+}
+
+.social-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--bg-surface-glass);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: var(--text-main);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--text-main);
+    opacity: 0;
+    transition: var(--transition-fast);
+    z-index: -1;
+}
+
+.social-btn:hover {
+    transform: translateX(8px) scale(1.1);
+    border-color: transparent;
+}
+
+.social-btn.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
+.social-btn.youtube:hover { background: #FF0000; }
+.social-btn.tiktok:hover { background: #000; border-color: #00f2fe; color: #fff; text-shadow: 2px 2px 0px #ff0050, -2px -2px 0px #00f2fe;}
+
+.whatsapp-float-right {
+    position: fixed;
+    bottom: 35px;
+    right: 35px;
+    width: 70px;
+    height: 70px;
+    background: var(--whatsapp-color);
+    color: var(--text-main);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    z-index: var(--z-toast);
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+    transition: var(--transition-smooth);
+}
+
+.whatsapp-float-right:hover {
+    transform: scale(1.1) rotate(-10deg);
+    background: var(--whatsapp-hover);
+}
+
+.pulse-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--whatsapp-color);
+    border-radius: 50%;
+    z-index: -1;
+    animation: pulse-ring-anim 2.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+/* ==========================================================================
+   9. POPUP DE VENDAS (PROVA SOCIAL)
+   ========================================================================== */
+.sales-popup {
+    position: fixed;
+    bottom: 40px;
+    left: -450px; /* Fora da tela inicialmente */
+    background: var(--bg-surface);
+    border: 1px solid var(--border-blue);
+    padding: 16px 20px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    box-shadow: var(--shadow-blue), var(--shadow-lg);
+    z-index: var(--z-floating);
+    width: 340px;
+    transition: left 0.8s cubic-bezier(0.34, 1.56, 0.64, 1); /* Efeito Bouncy */
+}
+
+.sales-popup.show {
+    left: 110px; /* Entra na tela, respeitando os ícones sociais */
+}
+
+.sales-popup::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 4px; height: 100%;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+
+.popup-img-container {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    background: rgba(0, 85, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-blue);
+    font-size: 1.4rem;
+    border: 1px solid var(--border-blue);
+}
+
+.popup-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0;
+    color: var(--text-main);
+}
+
+.popup-time {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    display: block;
+    margin-top: 4px;
+}
+
+.close-popup-btn {
+    margin-left: auto;
+    color: var(--text-muted);
+    font-size: 1.6rem;
+    padding: 5px;
+    border-radius: var(--radius-sm);
+    transition: var(--transition-fast);
+}
+
+.close-popup-btn:hover {
+    color: var(--warning-red);
+    background: rgba(255, 53, 71, 0.1);
+}
+
+/* ==========================================================================
+   10. PRIMEIRA DOBRA (HERO SECTION IMERSIVA)
+   ========================================================================== */
+.hero {
+    position: relative;
+    padding: 60px 0 120px;
+    min-height: calc(100vh - var(--header-height) - var(--ticker-height));
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-bg-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        radial-gradient(circle at 80% 40%, rgba(0, 85, 255, 0.15) 0%, transparent 60%),
+        linear-gradient(180deg, rgba(3,3,3,0.2) 0%, var(--bg-base) 100%);
+    z-index: 0;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+    position: relative;
+    z-index: var(--z-base);
+}
+
+.hero-text {
+    flex: 1.2;
+    animation: slideInLeft 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.hero-title {
+    font-size: 4rem;
+    line-height: 1.05;
+    margin-bottom: 30px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #cccccc;
+    margin-bottom: 45px;
+    max-width: 650px;
+    font-weight: 400;
+}
+
+/* Tabela de Preço da Hero */
+.price-showcase {
+    background: var(--bg-surface-glass);
+    border: 1px solid var(--border-light);
+    border-left: 5px solid var(--primary-blue);
+    padding: 25px 30px;
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    margin-bottom: 45px;
+    display: inline-block;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-md);
+}
+
+.price-old {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.price-old span {
+    color: var(--warning-red);
+    text-decoration: line-through;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+.price-new {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.price-new strong {
+    font-size: 3rem;
+    color: var(--text-main);
+    display: block;
+    margin-top: 5px;
+    line-height: 1;
+    text-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+.hero-cta-group {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.btn-explore {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+}
+
+.btn-explore i {
+    font-size: 1.4rem;
+    background: var(--bg-surface);
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--border-light);
+    transition: var(--transition-smooth);
+}
+
+.btn-explore:hover { color: var(--text-main); }
+.btn-explore:hover i { background: var(--primary-blue); border-color: var(--primary-blue); color: #fff; transform: translateY(5px); }
+
+.trust-indicators {
+    display: flex;
+    gap: 25px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+}
+
+.trust-indicators span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.trust-indicators i {
+    color: var(--success-green);
+    font-size: 1.3rem;
+}
+
+/* Imagem Hero e Brilho */
+.hero-visuals {
+    flex: 0.8;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    animation: fadeInRight 1.2s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.glow-effect {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px; height: 400px;
+    background: var(--primary-blue);
+    filter: blur(120px);
+    opacity: 0.25;
+    border-radius: 50%;
+    z-index: -1;
+    animation: pulse-glow 4s ease-in-out infinite alternate;
+}
+
+.hero-shirt-img {
+    max-width: 550px;
+    width: 100%;
+    filter: drop-shadow(0 30px 40px rgba(0,0,0,0.8));
+    animation: float-img 6s ease-in-out infinite;
+    position: relative;
+    z-index: 2;
+}
+
+/* ==========================================================================
+   11. SEÇÕES GLOBAIS (ESTRUTURA DE TÍTULOS)
+   ========================================================================== */
+section {
+    position: relative;
+}
+
+.section-header {
+    margin-bottom: 70px;
+}
+
+.section-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #ffffff, #888888);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   12. COLEÇÕES DE LIGAS (CARDS 3D)
+   ========================================================================== */
+.collections {
+    padding: 120px 0;
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border-light);
+}
+
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 30px;
+}
+
+.collection-card {
+    position: relative;
+    background: var(--bg-base);
+    border-radius: var(--radius-lg);
+    padding: 45px 35px;
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1;
+}
+
+.collection-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--gradient-glass);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.collection-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    border-color: var(--primary-blue);
+    box-shadow: var(--shadow-blue);
+}
+
+.collection-card:hover::before { opacity: 1; }
+
+.league-icon {
+    font-size: 3rem;
+    color: var(--primary-blue);
+    margin-bottom: 25px;
+    display: inline-block;
+    transition: transform 0.4s ease;
+}
+
+.collection-card:hover .league-icon {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.collection-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+.team-list li {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: var(--transition-fast);
+}
+
+.collection-card:hover .team-list li { color: #fff; }
+
+.team-list i {
+    color: var(--success-green);
+    font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   13. TECNOLOGIA (SCOUTING) E TABELA COMPARATIVA
+   ========================================================================== */
+.technology {
+    padding: 120px 0;
+    background: var(--bg-base);
+}
+
+.tech-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+.tech-info { flex: 1.1; }
+
+.tech-features {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.tech-item {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+.tech-icon {
+    width: 70px; height: 70px; min-width: 70px;
+    background: rgba(0, 85, 255, 0.05);
+    color: var(--primary-blue);
+    border-radius: var(--radius-md);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem;
+    border: 1px solid var(--border-blue);
+    box-shadow: inset 0 0 20px rgba(0, 85, 255, 0.1);
+    transition: var(--transition-smooth);
+}
+
+.tech-item:hover .tech-icon {
+    background: var(--primary-blue);
+    color: var(--text-main);
+    transform: rotateY(180deg);
+}
+
+.tech-text h4 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.tech-text p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.tech-visual {
+    flex: 0.9;
+    text-align: center;
+    position: relative;
+}
+
+.tech-visual img {
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-lighter);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    z-index: 2;
+}
+
+.tech-visual::after {
+    content: '';
+    position: absolute;
+    bottom: -20px; right: -20px;
+    width: 100%; height: 100%;
+    border: 2px solid var(--primary-blue);
+    border-radius: var(--radius-lg);
+    z-index: 1;
+}
+
+/* Tabela Comparativa (Player vs Fan) */
+.comparison {
+    padding: 120px 0;
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border-light);
+}
+
+.compare-table-wrapper {
+    overflow-x: auto;
+    margin-top: 60px;
+    background: var(--bg-base);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-md);
+}
+
+.compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+.compare-table th, .compare-table td {
+    padding: 25px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.compare-table th {
+    background: rgba(255,255,255,0.02);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: sticky;
+    top: 0;
+}
+
+.compare-table th i { margin-right: 10px; }
+.col-jogador { color: var(--primary-blue); background: rgba(0, 85, 255, 0.05) !important; }
+
+.compare-table tbody tr { transition: var(--transition-fast); }
+.compare-table tbody tr:hover { background: rgba(255,255,255,0.02); }
+
+.feature-name {
+    font-weight: 800;
+    color: var(--text-main);
+    width: 25%;
+    font-size: 1.1rem !important;
+}
+
+.compare-table td {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.compare-cta {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.btn-outline-white {
+    border: 2px solid rgba(255,255,255,0.2);
+    padding: 16px 32px;
+    border-radius: var(--radius-pill);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+.btn-outline-white:hover {
+    background: var(--text-main);
+    color: var(--bg-base);
+    transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   CORREÇÃO: GUIA DE TAMANHOS
+   ========================================================================== */
+.size-guide {
+    padding: 100px 0;
+    background: var(--bg-base);
+}
+
+.size-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    background: var(--gradient-glass);
+    padding: 50px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+    overflow: hidden; /* Corta qualquer coisa que tente vazar do card */
+}
+
+.size-text {
+    flex: 1;
+    min-width: 0; /* Comando essencial para a tabela não estourar o Flexbox */
+}
+
+.size-table-container {
+    overflow-x: auto; /* Cria barra de rolagem só na tabela se não couber */
+    margin-top: 30px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-blue);
+    background: var(--bg-surface);
+}
+
+.size-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    min-width: 500px; /* Impede que a tabela fique amassada */
+}
+
+.size-table th {
+    background: rgba(0, 85, 255, 0.15);
+    color: var(--primary-blue);
+    padding: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--border-blue);
+    white-space: nowrap; /* Não deixa o título quebrar a linha */
+}
+
+.size-table td {
+    padding: 16px;
+    border-bottom: 1px solid var(--border-light);
+    color: #ccc;
+    font-size: 1.05rem;
+    white-space: nowrap;
+}
+
+.size-table tr:last-child td { border-bottom: none; }
+.size-table tr:hover td { background: rgba(255,255,255,0.03); color: #fff; }
+
+.size-illustration {
+    flex: 0.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14rem;
+    color: rgba(255,255,255,0.03);
+}
+
+/* Regra extra para celular e tablet (coloque no final do seu arquivo, junto com os outros @media) */
+@media (max-width: 992px) {
+    .size-wrapper {
+        flex-direction: column;
+        padding: 30px 20px;
+    }
+    .size-illustration {
+        display: none; /* Esconde a camisa gigante no celular para dar foco total à tabela */
+    }
+}
+/* Coleção Retrô */
+.retro-legends {
+    padding: 120px 0;
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border-light);
+}
+
+.retro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 35px;
+    margin-top: 60px;
+}
+
+.retro-card {
+    background: var(--bg-base);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    text-align: center;
+    transition: var(--transition-smooth);
+}
+
+.retro-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--star-gold);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15);
+}
+
+.retro-img {
+    height: 280px;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.retro-img::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(180deg, transparent 50%, var(--bg-base) 100%);
+}
+
+.retro-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    filter: grayscale(30%) contrast(120%);
+    transition: all 0.5s ease;
+}
+
+.retro-card:hover .retro-img img {
+    opacity: 1;
+    transform: scale(1.1);
+    filter: grayscale(0%) contrast(100%);
+}
+
+.retro-info {
+    padding: 30px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.retro-info h4 { font-size: 1.3rem; margin-bottom: 8px; color: var(--star-gold); }
+.retro-info p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px; }
+
+/* ==========================================================================
+   15. AVALIAÇÕES (HALL DA FAMA COM CARROSSEL)
+   ========================================================================== */
+.hall-of-fame {
+    padding: 120px 0;
+    background: var(--bg-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.reviews-slider {
+    margin-top: 60px;
+    position: relative;
+}
+
+/* Sombras laterais para indicar scroll */
+.reviews-slider::before, .reviews-slider::after {
+    content: '';
+    position: absolute;
+    top: 0; width: 100px; height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+.reviews-slider::before { left: 0; background: linear-gradient(to right, var(--bg-base), transparent); }
+.reviews-slider::after { right: 0; background: linear-gradient(to left, var(--bg-base), transparent); }
+
+.reviews-track {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    padding: 20px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Esconde scrollbar no Firefox */
+}
+.reviews-track::-webkit-scrollbar { display: none; /* Esconde no Chrome/Safari */ }
+
+.review-box {
+    min-width: 380px;
+    background: var(--bg-surface);
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+    scroll-snap-align: center;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-sm);
+}
+
+.review-box:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: var(--shadow-md);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap; /* Impede a quebra de linha bagunçada */
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.reviewer-badge {
+    width: 55px; 
+    height: 55px;
+    min-width: 55px; /* Garante largura mínima */
+    flex-shrink: 0; /* PROÍBE o navegador de esmagar o círculo */
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    font-weight: 900; 
+    font-size: 1.4rem;
+    color: #fff;
+    box-shadow: var(--shadow-blue);
+}
+
+.reviewer-name {
+    flex: 1; /* Ocupa o espaço e empurra as estrelas */
+    min-width: 0; /* Evita que nomes gigantes quebrem o flexbox */
+}
+
+.reviewer-name strong { 
+    display: block; 
+    font-size: 1.15rem; 
+    color: #fff; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adiciona "..." se o nome for grande demais */
+}
+
+.reviewer-name span {
+    font-size: 0.85rem;
+    color: var(--success-green);
+    display: flex; 
+    align-items: center; 
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.stars { 
+    color: var(--star-gold); 
+    font-size: 1rem;
+    display: flex; 
+    flex-wrap: nowrap; 
+    gap: 3px; 
+    flex-shrink: 0; /* Proíbe o navegador de esmagar as estrelas */
+    margin-left: auto; /* Empurra para a direita */
+}
+
+.review-body p {
+    font-style: italic;
+    color: #d1d1d1;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.review-action p { color: var(--text-muted); margin-bottom: 15px; font-size: 1.1rem; }
+.btn-instagram {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: #fff; padding: 15px 30px; border-radius: var(--radius-pill);
+    font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+}
+.btn-instagram:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(220, 39, 67, 0.4); }
+
+/* Ajuste fino para celulares pequenos */
+@media (max-width: 480px) {
+    .review-header {
+        flex-wrap: wrap; /* Libera a quebra no celular */
+    }
+    .stars {
+        width: 100%; /* Coloca as estrelas numa linha limpa embaixo do nome */
+        margin-top: 5px;
+        margin-left: 0;
+    }
+}
+
+/* ==========================================================================
+   16. MANUAL DO MANTO, FAQ E CLUBE VIP
+   ========================================================================== */
+.care-instructions { padding: 80px 0; background: var(--bg-surface); }
+
+.care-box {
+    background: linear-gradient(135deg, rgba(0, 85, 255, 0.05) 0%, var(--bg-base) 100%);
+    padding: 60px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-blue);
+    box-shadow: var(--shadow-blue);
+}
+
+.care-text h2 { font-size: 2rem; margin-bottom: 20px; display: flex; align-items: center; gap: 15px; }
+.care-text h2 i { color: var(--primary-blue); font-size: 2.5rem; }
+
+.care-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.care-list li {
+    display: flex; align-items: flex-start; gap: 15px;
+    font-size: 1.05rem; color: #ccc;
+    background: rgba(255,255,255,0.02);
+    padding: 20px; border-radius: var(--radius-md);
+}
+
+.care-list i { color: var(--primary-blue); font-size: 1.5rem; margin-top: 2px; }
+
+/* FAQ */
+.faq-detailed { padding: 120px 0; background: var(--bg-base); }
+.faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 35px; margin-top: 60px; }
+.faq-item-box {
+    background: var(--bg-surface);
+    padding: 40px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+    transition: var(--transition-fast);
+}
+.faq-item-box:hover { border-color: rgba(255,255,255,0.2); transform: translateY(-5px); }
+.faq-item-box h4 { font-size: 1.25rem; margin-bottom: 20px; display: flex; align-items: flex-start; gap: 12px; color: #fff; }
+.faq-item-box h4 i { color: var(--primary-blue); font-size: 1.5rem; }
+.faq-item-box p { font-size: 1.05rem; color: var(--text-muted); line-height: 1.7; margin: 0; }
+
+/* Newsletter VIP */
+.newsletter-vip { padding: 100px 0; background: var(--bg-surface); border-bottom: 1px solid var(--border-light); }
+.vip-card {
+    display: flex; align-items: center; gap: 50px;
+    background: var(--gradient-primary);
+    padding: 60px; border-radius: var(--radius-lg);
+    flex-wrap: wrap; position: relative; overflow: hidden;
+    box-shadow: var(--shadow-neon);
+}
+.vip-card::after {
+    content: ''; position: absolute; top: -50%; right: -10%; width: 300px; height: 300px;
+    background: rgba(255,255,255,0.1); border-radius: 50%;
+}
+.vip-icon { font-size: 5rem; color: rgba(255,255,255,0.2); position: relative; z-index: 2; }
+.vip-text { flex: 1; min-width: 320px; position: relative; z-index: 2; }
+.vip-text h3 { font-size: 2.2rem; margin-bottom: 15px; color: #fff; }
+.vip-text p { color: rgba(255,255,255,0.9); font-size: 1.1rem; margin: 0; }
+.vip-form { flex: 1; min-width: 320px; position: relative; z-index: 2; }
+.vip-form form { display: flex; gap: 15px; width: 100%; background: #fff; padding: 8px; border-radius: var(--radius-pill); }
+.vip-form input { flex: 1; padding: 18px 25px; border-radius: var(--radius-pill); border: none; font-size: 1.05rem; color: #333; background: transparent; }
+.vip-form .btn-primary { background: var(--bg-base); color: #fff; padding: 15px 35px; }
+.vip-form .btn-primary:hover { background: #222; }
+
+/* ==========================================================================
+   17. RODAPÉ DE ALTA CONVERSÃO (FOOTER)
+   ========================================================================== */
+.footer-premium { background: #010101; padding-top: 100px; border-top: 1px solid var(--border-light); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 80px; }
+
+.brand-info h3 { font-size: 1.8rem; margin-bottom: 25px; letter-spacing: 1px; }
+.brand-info p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 30px; max-width: 450px; line-height: 1.8; }
+.secure-badges-footer { display: flex; gap: 20px; }
+.secure-badges-footer img { height: 45px; opacity: 0.6; transition: var(--transition-fast); filter: grayscale(100%); }
+.secure-badges-footer img:hover { opacity: 1; filter: grayscale(0%); }
+
+.footer-col h4 { font-size: 1.2rem; text-transform: uppercase; margin-bottom: 30px; color: var(--text-main); letter-spacing: 1px; }
+.fast-links ul li { margin-bottom: 15px; }
+.fast-links a { color: var(--text-muted); font-size: 1.05rem; display: inline-block; }
+.fast-links a:hover { color: var(--primary-blue); transform: translateX(8px); }
+
+.contact-info p { display: flex; align-items: center; gap: 12px; color: var(--text-muted); font-size: 1.05rem; margin-bottom: 20px; }
+.contact-info i { color: var(--primary-blue); font-size: 1.2rem; }
+.footer-contact-link {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: rgba(37, 211, 102, 0.1); color: var(--whatsapp-color);
+    padding: 12px 25px; border-radius: var(--radius-pill);
+    margin-bottom: 25px; font-weight: 700; border: 1px solid rgba(37, 211, 102, 0.3);
+}
+.footer-contact-link:hover { background: var(--whatsapp-color); color: #fff; }
+
+.footer-social { display: flex; gap: 15px; margin-top: 30px; }
+.footer-social a {
+    width: 45px; height: 45px;
+    background: rgba(255,255,255,0.05); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 1.2rem; border: 1px solid var(--border-light);
+}
+.footer-social a:hover { background: var(--primary-blue); border-color: var(--primary-blue); transform: translateY(-5px); }
+
+.footer-bottom-line { background: #000; padding: 30px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+.footer-bottom-line p { color: #666; font-size: 0.95rem; margin: 0; }
+
+/* ==========================================================================
+   18. ANIMAÇÕES (KEYFRAMES)
+   ========================================================================== */
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(50px) scale(0.95); }
+    to { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes pulse-glow {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.2; }
+    100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.4; }
+}
+
+@keyframes float-img {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-25px) rotate(3deg); }
+}
+
+@keyframes pulse-ring-anim {
+    0% { transform: scale(0.8); opacity: 0.8; }
+    100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* ==========================================================================
+   19. MEDIA QUERIES (6 BREAKPOINTS PARA RESPONSIVIDADE PERFEITA)
+   ========================================================================== */
+
+/* Telas muito grandes (Monitores Ultrawide) */
+@media (min-width: 1600px) {
+    .container { max-width: 1400px; }
+    .hero-title { font-size: 5rem; }
+    .hero-shirt-img { max-width: 650px; }
+}
+
+/* Notebooks comuns (até 1200px) */
+@media (max-width: 1200px) {
+    .hero-content { gap: 40px; }
+    .hero-title { font-size: 3.5rem; }
+    .tech-wrapper, .size-wrapper { gap: 40px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Tablets deitados / Telas menores (até 992px) */
+@media (max-width: 992px) {
+    .hero { padding: 40px 0 80px; text-align: center; }
+    .hero-content { flex-direction: column; }
+    .hero-text { align-items: center; display: flex; flex-direction: column; }
+    .hero-subtitle { margin: 0 auto 30px; }
+    .hero-cta-group { justify-content: center; }
+    .price-showcase { border-left: none; border-bottom: 5px solid var(--primary-blue); border-radius: var(--radius-md); }
+    
+    .tech-wrapper, .size-wrapper { flex-direction: column; text-align: center; }
+    .tech-item { flex-direction: column; align-items: center; }
+    
+    .social-floating-bar { display: none; } /* Oculta em tablets para despoluir */
+    .sales-popup.show { left: 25px; } /* Ajusta popup sem a barra social */
+    
+    .vip-card { padding: 40px; text-align: center; justify-content: center; }
+    .vip-text { min-width: 100%; }
+}
+
+/* Tablets em pé / Celulares grandes (até 768px) */
+@media (max-width: 768px) {
+    :root { --header-height: 75px; }
+    .navbar { display: none; } /* Oculta menu */
+    
+    .section-title { font-size: 2.2rem; }
+    .hero-title { font-size: 2.8rem; }
+    .price-new strong { font-size: 2.5rem; }
+    
+    .collections, .technology, .comparison, .size-guide, .retro-legends, .hall-of-fame, .care-instructions, .faq-detailed, .newsletter-vip { padding: 80px 0; }
+    
+    .compare-table-wrapper { padding-bottom: 15px; }
+    .vip-form form { flex-direction: column; background: transparent; padding: 0; }
+    .vip-form input { background: #fff; width: 100%; margin-bottom: 10px; }
+    .vip-form .btn-primary { width: 100%; border-radius: var(--radius-pill); }
+    
+    .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+    .brand-info p { margin: 0 auto 25px; }
+    .secure-badges-footer, .contact-info p, .footer-social { justify-content: center; }
+}
+
+/* Celulares comuns (até 576px) */
+@media (max-width: 576px) {
+    .top-ticker { display: none; } /* Esconde o ticker em telas muito pequenas */
+    .hero { min-height: auto; padding-top: 20px; }
+    .hero-title { font-size: 2.2rem; }
+    .section-title { font-size: 1.8rem; }
+    
+    .btn-whatsapp.btn-lg { font-size: 1.05rem; padding: 18px 20px; }
+    
+    .reviews-slider::before, .reviews-slider::after { width: 30px; }
+    .review-box { min-width: 300px; padding: 25px; }
+    
+    .care-box { padding: 30px 20px; }
+    .vip-card { padding: 30px 20px; }
+    .vip-icon { font-size: 3.5rem; }
+    
+    /* Adaptação dos Widgets Flutuantes para Celular */
+    .sales-popup { width: calc(100% - 40px); bottom: 120px; padding: 12px; }
+    .sales-popup.show { left: 20px; }
+    .whatsapp-float-right { width: 60px; height: 60px; font-size: 2rem; bottom: 25px; right: 25px; }
+}
+
+/* Celulares pequenos (até 350px) */
+@media (max-width: 350px) {
+    .hero-title { font-size: 1.8rem; }
+    .price-new strong { font-size: 2rem; }
+    .review-box { min-width: 260px; }
+    .whatsapp-float-right { width: 50px; height: 50px; font-size: 1.6rem; }
+}
+/* ==========================================================================
+   CORREÇÃO: IMAGEM DO TECIDO E HOTSPOTS (BOLINHAS COM '+')
+   ========================================================================== */
+.tech-image-container {
+    position: relative; /* Fundamental para segurar os botões no lugar */
+    display: inline-block;
+    max-width: 100%;
+}
+
+.tech-image-container img {
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-lighter);
+    box-shadow: var(--shadow-lg);
+    display: block;
+    width: 100%;
+}
+
+/* Estilo das bolinhas interativas */
+.hotspot {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background: var(--primary-blue);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 85, 255, 0.8);
+    z-index: 10;
+    transition: var(--transition-fast);
+}
+
+.hotspot i {
+    font-size: 1.2rem;
+}
+
+.hotspot:hover {
+    transform: scale(1.2);
+    background: #fff;
+    color: var(--primary-blue);
+}
+
+/* Posição de cada bolinha (você pode ajustar as porcentagens depois para bater com sua foto) */
+.hs-1 { top: 25%; left: 35%; }
+.hs-2 { top: 55%; left: 65%; }
+.hs-3 { top: 75%; left: 45%; }
+/* ==========================================================================
+   BALÃO DE INFORMAÇÃO DOS HOTSPOTS (CRIADO PELO JS)
+   ========================================================================== */
+.hotspot-tooltip {
+    position: absolute;
+    background: rgba(5, 5, 5, 0.95);
+    border: 1px solid var(--primary-blue);
+    padding: 15px;
+    border-radius: var(--radius-md);
+    width: 220px;
+    z-index: 20;
+    box-shadow: var(--shadow-lg);
+    transform: translate(-50%, -100%);
+    margin-top: -15px;
+    pointer-events: none;
+    animation: fadeInTooltip 0.3s ease forwards;
+}
+
+.hotspot-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid var(--primary-blue);
+}
+
+.hotspot-tooltip strong {
+    display: block;
+    color: #fff;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.hotspot-tooltip span {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    display: block;
+}
+
+@keyframes fadeInTooltip {
+    from { opacity: 0; transform: translate(-50%, -90%); }
+    to { opacity: 1; transform: translate(-50%, -100%); }
+}

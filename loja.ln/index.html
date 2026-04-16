@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LN Store | A Melhor Boutique de Mantos do Brasil</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="top-ticker">
+        <div class="ticker-wrap">
+            <div class="ticker-move">
+                <div class="ticker-item"><i class="fa-solid fa-bolt"></i> LANÇAMENTOS: Novas camisas da temporada 24/25 já no estoque!</div>
+                <div class="ticker-item"><i class="fa-solid fa-truck-fast"></i> LOGÍSTICA: Frete Grátis e com seguro para todo o Brasil.</div>
+                <div class="ticker-item"><i class="fa-solid fa-tags"></i> OFERTA: Lote promocional por tempo limitado: R$ 99,90.</div>
+                <div class="ticker-item"><i class="fa-solid fa-gem"></i> QUALIDADE: Padrão Oficial 1:1 com tecido respirável Dry-Tech.</div>
+            </div>
+        </div>
+    </div>
+
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <h2><span class="text-white">L</span><span class="text-blue">N</span> <span class="text-subtitle">STORE</span></h2>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#catalogo"><i class="bx bx-football"></i> Catálogo</a></li>
+                    <li><a href="#tecnologia"><i class="bx bx-microchip"></i> Tecnologia</a></li>
+                    <li><a href="#medidas"><i class="bx bx-ruler"></i> Medidas</a></li>
+                    <li><a href="#retro"><i class="bx bx-history"></i> Lendas</a></li>
+                    <li><a href="#depoimentos"><i class="bx bx-star"></i> Torcida</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#comprar" class="btn-whatsapp-outline nav-btn">
+                    <i class="fa-brands fa-whatsapp"></i> Fazer Pedido
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="social-floating-bar">
+        <a href="#" class="social-btn instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="social-btn youtube" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#" class="social-btn tiktok" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+    </div>
+
+    <div id="sales-popup" class="sales-popup">
+        <div class="popup-img-container">
+            <i class="fa-solid fa-bag-shopping"></i>
+        </div>
+        <div class="popup-content">
+            <p id="popup-text" class="popup-text">Monitorando transferências...</p>
+            <span id="popup-time" class="popup-time">agora</span>
+        </div>
+        <button id="close-popup" class="close-popup-btn"><i class="bx bx-x"></i></button>
+    </div>
+
+    <section class="hero" id="home">
+        <div class="hero-bg-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <div class="badge-premium">
+                    <i class="fa-solid fa-star"></i> A Escolha dos Verdadeiros Fãs
+                </div>
+                <h1 class="hero-title">SUA PAIXÃO NÃO MERECE <span class="highlight">MENOS QUE A PERFEIÇÃO</span></h1>
+                <p class="hero-subtitle">Mantos com qualidade de jogo, costuras impecáveis e tecnologia de absorção avançada. Sinta o peso da camisa e o orgulho das arquibancadas com a LN Store.</p>
+                
+                <div class="price-showcase">
+                    <div class="price-old">Preço Normal: <span>R$ 249,90</span></div>
+                    <div class="price-new">Sua Transferência: <strong>R$ 99,90</strong></div>
+                </div>
+
+                <div class="hero-cta-group">
+                    <a href="https://wa.me/55SEUNUMERO" class="btn-whatsapp btn-pulse btn-lg" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> Convocar Meu Manto Agora
+                    </a>
+                    <a href="#catalogo" class="btn-explore">
+                        Explorar Coleções <i class="bx bx-down-arrow-alt"></i>
+                    </a>
+                </div>
+                
+                <div class="trust-indicators">
+                    <span><i class="bx bx-shield-check"></i> Satisfação Garantida</span>
+                    <span><i class="bx bx-check-shield"></i> Site Seguro</span>
+                    <span><i class="bx bx-package"></i> Envio Imediato</span>
+                </div>
+            </div>
+
+            <div class="hero-visuals">
+                <div class="glow-effect"></div>
+                <img src="camisa-hero.png" alt="Camisa Premium LN Store" class="hero-shirt-img">
+            </div>
+        </div>
+    </section>
+
+    <section class="collections" id="catalogo">
+        <div class="container">
+            <div class="section-header center">
+                <h2 class="section-title">O MAPA DO FUTEBOL MUNDIAL</h2>
+                <p>Navegue pelas principais ligas e encontre a armadura do seu clube do coração.</p>
+            </div>
+            
+            <div class="collections-grid">
+                <div class="collection-card br-theme">
+                    <div class="card-bg"></div>
+                    <div class="card-content">
+                        <i class="fa-solid fa-trophy league-icon"></i>
+                        <h3>Brasileirão</h3>
+                        <ul class="team-list">
+                            <li><i class="bx bx-check"></i> Flamengo</li>
+                            <li><i class="bx bx-check"></i> Palmeiras</li>
+                            <li><i class="bx bx-check"></i> São Paulo</li>
+                            <li><i class="bx bx-check"></i> Vasco & Mais</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="collection-card eng-theme">
+                    <div class="card-bg"></div>
+                    <div class="card-content">
+                        <i class="fa-solid fa-chess-knight league-icon"></i>
+                        <h3>Premier League</h3>
+                        <ul class="team-list">
+                            <li><i class="bx bx-check"></i> Arsenal</li>
+                            <li><i class="bx bx-check"></i> Man. City</li>
+                            <li><i class="bx bx-check"></i> Liverpool</li>
+                            <li><i class="bx bx-check"></i> Chelsea & Mais</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="collection-card eur-theme">
+                    <div class="card-bg"></div>
+                    <div class="card-content">
+                        <i class="fa-solid fa-star-half-stroke league-icon"></i>
+                        <h3>Gigantes da Europa</h3>
+                        <ul class="team-list">
+                            <li><i class="bx bx-check"></i> Real Madrid</li>
+                            <li><i class="bx bx-check"></i> Barcelona</li>
+                            <li><i class="bx bx-check"></i> Bayern M.</li>
+                            <li><i class="bx bx-check"></i> PSG & Mais</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="collection-card nat-theme">
+                    <div class="card-bg"></div>
+                    <div class="card-content">
+                        <i class="fa-solid fa-earth-americas league-icon"></i>
+                        <h3>Seleções Nacionais</h3>
+                        <ul class="team-list">
+                            <li><i class="bx bx-check"></i> Brasil</li>
+                            <li><i class="bx bx-check"></i> Argentina</li>
+                            <li><i class="bx bx-check"></i> Alemanha</li>
+                            <li><i class="bx bx-check"></i> França & Mais</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="technology" id="tecnologia">
+        <div class="container">
+            <div class="tech-wrapper">
+                <div class="tech-info">
+                    <span class="badge-blue">Scouting Técnico</span>
+                    <h2 class="section-title">A ENGENHARIA POR TRÁS DO MANTO</h2>
+                    <p>Esqueça camisas pesadas e costuras mal feitas. Entregamos a mais alta tecnologia esportiva direto da fábrica para o seu corpo.</p>
+                    
+                    <div class="tech-features">
+                        <div class="tech-item">
+                            <div class="tech-icon"><i class="bx bx-wind"></i></div>
+                            <div class="tech-text">
+                                <h4>Controle Térmico (Dry-Tech)</h4>
+                                <p>Tecido com microfuros estratégicos que aceleram a evaporação do suor, mantendo você seco até no sol do meio-dia.</p>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon"><i class="bx bx-shape-triangle"></i></div>
+                            <div class="tech-text">
+                                <h4>Corte Anatômico</h4>
+                                <p>Modelagem que se adapta ao corpo, oferecendo liberdade de movimento total para bater uma bola ou sair à noite.</p>
+                            </div>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon"><i class="bx bx-medal"></i></div>
+                            <div class="tech-text">
+                                <h4>Patches e Bordados HD</h4>
+                                <p>Escudos aplicados em alta definição (bordados ou termocolantes emborrachados, seguindo rigorosamente o padrão oficial).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-visual">
+                    <div class="tech-image-container">
+                        <img src="detalhe-tecido.png" alt="Detalhe do Tecido LN Store">
+                        <div class="hotspot hs-1"><i class="bx bx-plus"></i></div>
+                        <div class="hotspot hs-2"><i class="bx bx-plus"></i></div>
+                        <div class="hotspot hs-3"><i class="bx bx-plus"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="comparison">
+        <div class="container">
+            <div class="section-header center">
+                <h2 class="section-title">ENTENDA A DIFERENÇA</h2>
+                <p>Nós vendemos os dois tipos. Qual é o melhor para o seu estilo de jogo?</p>
+            </div>
+            
+            <div class="compare-table-wrapper">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th class="col-torcedor"><i class="fa-solid fa-users"></i> Versão Torcedor (Fan)</th>
+                            <th class="col-jogador"><i class="fa-solid fa-person-running"></i> Versão Jogador (Player)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="feature-name">Caimento (Corte)</td>
+                            <td>Tradicional, mais folgado e confortável para o dia a dia.</td>
+                            <td>Fit, bem justo ao corpo, desenhado para atletas de alto rendimento.</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Escudo e Logos</td>
+                            <td>Bordados (costurados) em alta definição, muito resistentes.</td>
+                            <td>Termocolantes (emborrachados), para reduzir peso e atrito na pele.</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Tecido e Peso</td>
+                            <td>Tecido tecnológico padrão, excelente durabilidade, um pouco mais pesado.</td>
+                            <td>Ultra-leve, com tramas mais abertas para transpiração extrema.</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-name">Indicação de Uso</td>
+                            <td>Ir ao estádio, churrasco, assistir jogos, uso diário casual.</td>
+                            <td>Jogar futebol, treinar na academia, visual esportivo moderno.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="compare-cta">
+                    <a href="https://wa.me/55SEUNUMERO" class="btn-outline-white" target="_blank">
+                        Ainda na dúvida? Fale com nosso especialista <i class="bx bx-right-arrow-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <section class="size-guide" id="medidas">
+    <div class="container">
+        <div class="size-wrapper">
+            <div class="size-text">
+                <h2 class="section-title">ACERTE NA CONTRATAÇÃO</h2>
+                <p>Saber o seu tamanho exato evita dores de cabeça. Use nossa tabela oficial como referência para a <strong>Versão Torcedor</strong>. <em>Dica: Se preferir a Versão Jogador, recomendamos pedir um tamanho acima, pois a forma é justa.</em></p>
+                
+                <div class="size-table-container">
+                    <table class="size-table">
+                        <thead>
+                            <tr>
+                                <th>Tamanho</th>
+                                <th>Altura (cm)</th>
+                                <th>Largura (cm)</th>
+                                <th>Peso Recomendado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>P (S)</td><td>69 - 71</td><td>53 - 55</td><td>55 - 70 kg</td></tr>
+                            <tr><td>M (M)</td><td>71 - 73</td><td>55 - 57</td><td>70 - 80 kg</td></tr>
+                            <tr><td>G (L)</td><td>73 - 75</td><td>57 - 58</td><td>80 - 90 kg</td></tr>
+                            <tr><td>GG (XL)</td><td>75 - 78</td><td>58 - 60</td><td>90 - 100 kg</td></tr>
+                            <tr><td>XG (XXL)</td><td>78 - 81</td><td>60 - 62</td><td>Acima de 100 kg</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="size-illustration">
+                <i class="fa-solid fa-shirt"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="retro-legends" id="retro">
+        <div class="container">
+            <div class="section-header center">
+                <span class="badge-gold"><i class="fa-solid fa-crown"></i> Coleção Lendas</span>
+                <h2 class="section-title">MANTOS QUE FIZERAM HISTÓRIA</h2>
+                <p>O futebol moderno é incrível, mas as camisas clássicas são imortais. Reviva os momentos épicos.</p>
+            </div>
+            
+            <div class="retro-grid">
+                <div class="retro-card">
+                    <div class="retro-img"><img src="retro1.jpg" alt="Brasil 2002"></div>
+                    <div class="retro-info">
+                        <h4>Brasil 2002</h4>
+                        <p>A magia do Penta</p>
+                        <a href="#" class="btn-sm"><i class="bx bx-cart"></i> Consultar</a>
+                    </div>
+                </div>
+                <div class="retro-card">
+                    <div class="retro-img"><img src="retro2.jpg" alt="Milan 2007"></div>
+                    <div class="retro-info">
+                        <h4>Milan 2006/07</h4>
+                        <p>O esquadrão imortal</p>
+                        <a href="#" class="btn-sm"><i class="bx bx-cart"></i> Consultar</a>
+                    </div>
+                </div>
+                <div class="retro-card">
+                    <div class="retro-img"><img src="retro3.jpg" alt="Barcelona 2011"></div>
+                    <div class="retro-info">
+                        <h4>Barcelona 2010/11</h4>
+                        <p>O tiki-taka perfeito</p>
+                        <a href="#" class="btn-sm"><i class="bx bx-cart"></i> Consultar</a>
+                    </div>
+                </div>
+                <div class="retro-card">
+                    <div class="retro-img"><img src="retro4.jpg" alt="Flamengo 81"></div>
+                    <div class="retro-info">
+                        <h4>Flamengo 1981</h4>
+                        <p>Geração de ouro</p>
+                        <a href="#" class="btn-sm"><i class="bx bx-cart"></i> Consultar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hall-of-fame" id="depoimentos">
+        <div class="container">
+            <div class="section-header center">
+                <h2 class="section-title">HALL DA FAMA DA LN STORE</h2>
+                <p>Nossa arquibancada está cheia. Veja o que os nossos clientes dizem quando a camisa chega em casa.</p>
+            </div>
+
+            <div class="reviews-slider">
+                <div class="reviews-track">
+                    <div class="review-box">
+                        <div class="review-header">
+                            <div class="reviewer-badge">N</div>
+                            <div class="reviewer-name">
+                                <strong>Nicola Rodrigues</strong>
+                                <span><i class="fa-solid fa-circle-check verify"></i> Compra Verificada</span>
+                            </div>
+                            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                        <div class="review-body">
+                            <p>"Meu Deus a camisa e lindo demais. O caimento é perfeito, super recomendo a loja. Já vou pedir a segunda pro meu irmão."</p>
+                        </div>
+                    </div>
+                    
+                    <div class="review-box">
+                        <div class="review-header">
+                            <div class="reviewer-badge">V</div>
+                            <div class="reviewer-name">
+                                <strong>Vinicius Hilário</strong>
+                                <span><i class="fa-solid fa-circle-check verify"></i> Compra Verificada</span>
+                            </div>
+                            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                        <div class="review-body">
+                            <p>"Comprei uma camisa do River Plate de 1996/97. Simplesmente espetacular! Tecido brilhante, material leve e de qualidade. Os bordados e desenhos são perfeitos."</p>
+                        </div>
+                    </div>
+
+                    <div class="review-box">
+                        <div class="review-header">
+                            <div class="reviewer-badge">I</div>
+                            <div class="reviewer-name">
+                                <strong>Israel Oliveira</strong>
+                                <span><i class="fa-solid fa-circle-check verify"></i> Compra Verificada</span>
+                            </div>
+                            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                        <div class="review-body">
+                            <p>"Chegou rapido, modelo novo da copa de clubes. O atendimento no WhatsApp me tirou todas as dúvidas antes de comprar. Confiança total."</p>
+                        </div>
+                    </div>
+
+                    <div class="review-box">
+                        <div class="review-header">
+                            <div class="reviewer-badge">L</div>
+                            <div class="reviewer-name">
+                                <strong>Lucas Silva</strong>
+                                <span><i class="fa-solid fa-circle-check verify"></i> Compra Verificada</span>
+                            </div>
+                            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                        <div class="review-body">
+                            <p>"Top demais. A qualidade é tão boa que parece que paguei R$ 350 na loja oficial do shopping. Ganharam um cliente fiel."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="review-action center mt-40">
+                <p>Temos centenas de feedbacks positivos no nosso Instagram!</p>
+                <a href="#" class="btn-instagram"><i class="fa-brands fa-instagram"></i> Ver Mais Feedbacks nos Destaques</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="care-instructions">
+        <div class="container">
+            <div class="care-box">
+                <div class="care-text">
+                    <h2><i class="bx bx-droplet"></i> MANUAL DO MANTO</h2>
+                    <p>Quer que sua camisa dure anos parecendo nova? Siga as regras do jogo na hora de lavar:</p>
+                    <ul class="care-list">
+                        <li><i class="fa-solid fa-hand-holding-droplet"></i> Lave sempre à mão. Evite máquina de lavar.</li>
+                        <li><i class="fa-solid fa-ban"></i> Nunca use alvejantes, cloro ou amaciante em excesso.</li>
+                        <li><i class="fa-solid fa-sun"></i> Seque sempre à sombra. O sol resseca os adesivos.</li>
+                        <li><i class="fa-solid fa-temperature-empty"></i> Nunca passe ferro por cima de patrocínios, nomes ou números.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-detailed">
+        <div class="container">
+            <div class="section-header center">
+                <h2 class="section-title">CENTRAL DE DÚVIDAS</h2>
+                <p>Tudo o que você precisa saber sobre prazos, envios e personalização.</p>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item-box">
+                    <h4><i class="bx bx-question-mark"></i> Qual o prazo de entrega?</h4>
+                    <p>Como nossos produtos vêm direto da fábrica internacional para garantir a qualidade premium e o preço baixo, o prazo médio é de 15 a 25 dias úteis. Fornecemos código de rastreamento para você acompanhar tudo passo a passo.</p>
+                </div>
+                <div class="faq-item-box">
+                    <h4><i class="bx bx-question-mark"></i> Posso personalizar com meu nome?</h4>
+                    <p>Sim! Você pode adicionar qualquer nome e número. Utilizamos as fontes oficiais e termocolantes originais de cada campeonato. A personalização tem um pequeno custo adicional.</p>
+                </div>
+                <div class="faq-item-box">
+                    <h4><i class="bx bx-question-mark"></i> Como funciona a garantia?</h4>
+                    <p>Garantimos a entrega do seu produto ou seu dinheiro de volta. Além disso, se o produto chegar com algum defeito de fabricação ou diferente do que foi pedido, fazemos a troca sem custos.</p>
+                </div>
+                <div class="faq-item-box">
+                    <h4><i class="bx bx-question-mark"></i> Como é feito o pagamento?</h4>
+                    <p>Toda a negociação e finalização é feita de forma segura pelo WhatsApp. Aceitamos PIX (com aprovação imediata) e Cartão de Crédito.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter-vip">
+        <div class="container">
+            <div class="vip-card">
+                <div class="vip-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+                <div class="vip-text">
+                    <h3>ENTRE PARA A LISTA VIP DA LN STORE</h3>
+                    <p>Receba em primeira mão no seu e-mail ou WhatsApp os lançamentos de novas camisas, reposições de estoque e cupons secretos de desconto.</p>
+                </div>
+                <div class="vip-form">
+                    <form action="#" id="vipForm">
+                        <input type="email" placeholder="Digite seu melhor e-mail" required>
+                        <button type="submit" class="btn-primary">Entrar no Clube</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-premium">
+        <div class="container footer-grid">
+            <div class="footer-col brand-info">
+                <h3><span class="text-white">L</span><span class="text-blue">N</span> <span class="text-subtitle">STORE</span></h3>
+                <p>Mais do que uma loja, o vestiário oficial da sua paixão. Qualidade premium, respeito ao torcedor e atendimento humanizado.</p>
+                <div class="secure-badges-footer">
+                    <img src="selo-seguro.png" alt="Ambiente Seguro">
+                    <img src="selo-google.png" alt="Google Safe Browsing">
+                </div>
+            </div>
+
+            <div class="footer-col fast-links">
+                <h4>Mapa do Campo</h4>
+                <ul>
+                    <li><a href="#catalogo">Coleções Oficiais</a></li>
+                    <li><a href="#medidas">Guia de Tamanhos</a></li>
+                    <li><a href="#tecnologia">Qualidade e Tecido</a></li>
+                    <li><a href="#depoimentos">Avaliações Reais</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col contact-info">
+                <h4>Fale com o Treinador</h4>
+                <a href="https://wa.me/55SEUNUMERO" class="footer-contact-link" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> Atendimento via WhatsApp
+                </a>
+                <p><i class="fa-regular fa-envelope"></i> contato@lnstore.com.br</p>
+                <p><i class="bx bx-time-five"></i> Seg. a Sáb. - 09h às 18h</p>
+                
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom-line">
+            <div class="container">
+                <p>&copy; 2026 LN Store. Todos os direitos reservados. É proibida a reprodução de fotos ou textos sem autorização.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/55SEUNUMERO" class="whatsapp-float-right" target="_blank" title="Chame no Zap!">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="pulse-ring"></span>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
